@@ -1,19 +1,34 @@
-This project was a bit of a mess, but I eventually got it working about as well as I could have.
 
+Welcome!
 
+No need to install, as long as you have .NET 10.0. Executable path is: .\\BackMan\\BackMan.App\\bin\\Release\\net10.0-windows\\BackMan.App.exe.
 
-No need to install, as long as you have .NET 10.0. Executable path is: .\\BackMan\\BackMan.App\\bin\\Release\\net10.0-windows\\BackMan.App.exe
+To install .NET 10.0, go to https://dotnet.microsoft.com/en-us/download/dotnet/10.0.
 
-Almost all the majic happens in .\\BackMan\\BackMan.App\\Program.cs, .\\ProgramData\\BackMan\\tasks.json, with app settings in .\\BackMan\\BackMan.App\\BackMan.App.csproj and the build solution in .BackMan\\BackMan.slnx.
+This app is Windows exclusive, and works for Windows 10 and 11.
 
+To use:
 
+1. After downloading, run the BackMan.App.exe file located at .\\BackMan\\BackMan.App\\bin\\Release\\net10.0-windows\\BackMan.App.exe.
+2. Please note that this will cause the program to be added to your startup apps
+3. Click on "^" symbol on task bar to open tray.
+4. Look for "BackMan" in the tray. Should have number of active tasks and number of tasks due when you hover over it.
+5. Right click on "BackMan" icon in the tray to get a menu. <br />
+   \- "Show Tasks" gives popup window with all tasks, their status (enabled/disabled) and config file location. <br />
+   \- "Edit Config" brings up the config file in your text editor for easy editing <br />
+   \- "Restart Scheduler" will force the program to check tasks to run again. Useful if adding new tasks. <br />
+   \- "Exit" will cause the program to close.
 
-Examples and recommended tasks in .\\BackMan\\tasks.json
+Examples and recommended tasks in .\\BackMan\\tasks.json.
 
+No uninstallation needed. If you wish to uninstall simply delete the BackMan folder.
 
 
 About:
 
+
+This project was a bit of a mess, but I eventually got it working about as well as I could have.
+Almost all the magic happens in .\\BackMan\\BackMan.App\\Program.cs, .\\ProgramData\\BackMan\\tasks.json, with app settings in .\\BackMan\\BackMan.App\\BackMan.App.csproj and the build solution in .BackMan\\BackMan.slnx.
 
 
 I made this program as a third and likely final attempt to correct some issues I have with Windows. Namely, the lack of foresight for Microsoft to run DISM and SFC in the background, which I am almost certain they do not do. Initially I patched this using the TaskScheduler app, but this can be a difficult app to work with and it has many limitations, including inconsistencies in when it chooses to run tasks. This works, but later, when I decided I wanted other apps to launch on startup, such as my web browser, I found it difficult to get it to launch minimized. This is a fundamental issue and limitation with Windows, as each window is "sovereign," meaning getting other apps and windows to change it is janky at best. I did my best using complex batch files called by the TaskScheduler, but ultimately I thought maybe if I bypassed TaskScheduler altogether and made a whole program, maybe I could finally solve the problems by using something more robust than TaskScheduler tasks and batch files. 
